@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1709029449 source:d:\scoala\info+\repository\tic\numereprime\main.cpp
+	<iostream>
+	<fstream>
+

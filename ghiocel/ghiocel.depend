@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1710278176 source:d:\scoala\info+\repository\tic\ghiocel\main.cpp
+	<iostream>
+	<fstream>
+
