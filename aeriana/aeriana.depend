@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1710535450 source:d:\scoala\info+\repository\tic\aeriana\main.cpp
+	<iostream>
+	<fstream>
+	<cmath>
+
