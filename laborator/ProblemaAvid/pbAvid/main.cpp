@@ -44,18 +44,41 @@ int main()
         cout << v[i] << " ";
     }*/
     int numarTriplete = 0;
-    for(int index = 0; index <= numbersCount - 3; index++){
-        int firstCmmdc = getCmmdc(numbers[index],numbers[index + 1]);
-        int cmmdc = getCmmdc(firstCmmdc, numbers[index + 2]);
-        int numarDivizori = getNumarDivizori(cmmdc);
-        if(numarDivizori <= numarMaximDivizori){
-            numarTriplete++;
-        }
-    }
     if(cerinta == 1){
+        for(int index = 0; index <= numbersCount - 3; index++){
+            int firstCmmdc = getCmmdc(numbers[index],numbers[index + 1]);
+            int cmmdc = getCmmdc(firstCmmdc, numbers[index + 2]);
+            int numarDivizori = getNumarDivizori(cmmdc);
+            if(numarDivizori <= numarMaximDivizori){
+                numarTriplete++;
+            }
+        }
         fout << numarTriplete;
     }
+    if(cerinta == 2){
+        int secventaMaxima = 0;
+        int numereInSecventa = 0;
+         for(int index = 0; index <= numbersCount - 3; index++){
+             int firstCmmdc = getCmmdc(numbers[index],numbers[index + 1]);
+             int cmmdc = getCmmdc(firstCmmdc, numbers[index + 2]);
+             int numarDivizori = getNumarDivizori(cmmdc);
+             if(numarDivizori <= numarMaximDivizori){
+                numereInSecventa++;
+             }
+             if(numarDivizori > numarMaximDivizori){
+                if(numereInSecventa > secventaMaxima){
+                    secventaMaxima = numereInSecventa;
+                }
+                numereInSecventa = 0;
+             }
 
+         }
+         secventaMaxima = numereInSecventa;
+         fout << secventaMaxima;
+    }
 
+    /*2. Care este lungimea maximă a unei secvențe din șirul dat, în care cel mai mare divizor comun
+al oricărui triplet de numere situate pe poziții consecutive are cel mult 𝑝 divizori naturali?
+*/
     return 0;
 }
