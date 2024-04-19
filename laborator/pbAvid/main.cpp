@@ -3,6 +3,9 @@
 #include <fstream>
 
 using namespace std;
+
+int sirp[3000], lsirp = 0;
+
 int getCmmdc(int a, int b)
 {
     int rest;
@@ -12,6 +15,33 @@ int getCmmdc(int a, int b)
         b = rest;
     }
     return a;
+}
+int prim(int n)
+{
+    if(n <= 1){
+        return 0;
+    }
+    if(n == 2){
+        return 1;
+    }
+    if( n % 2 == 0){
+        return 0;
+    }
+    for( int i = 3; i * i <= n; i = i + 2){
+        if( n % i == 0){
+            return 0;
+        }
+    }
+    return 1;
+}
+void sirprime()
+{
+    for(int i = 2; i * i < 5000000; i++){
+        if( prim(i)){
+            lsirp ++;
+            sirp[lsirp] = i;
+        }
+    }
 }
 int getNumarDivizori(int a)
 {
@@ -25,7 +55,7 @@ int getNumarDivizori(int a)
     }
     if( divizor * divizor == a){
         nrDiv++;
-    }
+     }
     return nrDiv;
 }
 int main()
@@ -33,6 +63,10 @@ int main()
     int numbersCount, numarMaximDivizori, cerinta;
     ifstream fin("avid.in");
     ofstream fout("avid.out");
+    sirprime();
+    for(int i = 1; i <= lsirp; i++){
+        cout << sirp[i] << " ";
+    }
     fin >> cerinta;
     fin >> numbersCount;
     fin >> numarMaximDivizori;
